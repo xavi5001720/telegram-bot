@@ -1,13 +1,12 @@
 from telethon import TelegramClient, events
 import asyncio
+import os
 
-# --- Config Telegram API ---
-api_id = 24132532
-api_hash = '91a0fbf49b0046325957bc201fab3ff3'
+# --- Configuración desde variables de entorno ---
+api_id = int(os.getenv("API_ID"))
+api_hash = os.getenv("API_HASH")
 session_name = 'tesla_alert_bot'
-
-# --- ID del chat donde recibirás alertas ---
-your_chat_id = 4712998259  # <-- tu ID numérico correcto
+your_chat_id = int(os.getenv("YOUR_CHAT_ID"))
 
 # --- Palabras clave ---
 keywords = [
@@ -130,3 +129,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
